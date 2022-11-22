@@ -6,7 +6,7 @@ from typing import Any
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import retrieve_yfinance_closing
+from .nodes import yf_retrieve_node
 
 
 def create_pipeline(**kwargs: Any) -> Pipeline:
@@ -14,14 +14,14 @@ def create_pipeline(**kwargs: Any) -> Pipeline:
         [
             # 01 RAW to 02 INTERMEDIATE Tickers daily closing prices
             node(
-                func=retrieve_yfinance_closing,
-                inputs=["empty_input", "params:retrieve_yfinance_closing"],
-                outputs=["tickers_closing", "tickers_closing_csv"],
-                name="retrieve_yfinance_closing",
+                func=yf_retrieve_node,
+                inputs=["empty_input", "params:yf_retrieve"],
+                outputs=["tickers_ts", "tickers_ts_csv"],
+                name="yf_retrieve_node",
             ),
         ],
-        parameters="params:retrieve_yfinance_closing",
+        parameters="params:yf_retrieve",
         inputs="empty_input",
         namespace="data_processing",
-        outputs="tickers_closing",
+        outputs={"tickers_ts", "tickers_ts_csv"},
     )

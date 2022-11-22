@@ -6,12 +6,10 @@ from typing import Any
 
 import pandas as pd
 
-from ...classes.data_collection.data_collection import YfinanceCollection
+from ...classes.data_collection.data_collection import yf_retrieve
 
 
-def retrieve_yfinance_closing(
-    e: Any, parameters: Any
-) -> tuple[pd.DataFrame, pd.DataFrame]:
+def yf_retrieve_node(e: Any, parameters: Any) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Retrieve tickers daily historic prices from yahoo yfinance API
         :param e: /
@@ -26,10 +24,10 @@ def retrieve_yfinance_closing(
         :return: tickers daily historic prices
     """
 
-    tickers_closing = YfinanceCollection.retrieve(
+    tickers_ts = yf_retrieve(
         parameters["tickers_list"],
         parameters["start_date"],
         parameters["end_date"],
     )
 
-    return tickers_closing, tickers_closing
+    return tickers_ts, tickers_ts

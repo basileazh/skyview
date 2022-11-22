@@ -4,7 +4,7 @@
 # Documentation for this file format can be found in "Parameters"
 # Link: https://kedro.readthedocs.io/en/0.18.3/kedro_project_setup/configuration.html#parameters
 
-retrieve_yfinance_closing:
+yf_retrieve:
   activate: True
   start_date: 2015-01-01
   end_date: 2022-10-31
