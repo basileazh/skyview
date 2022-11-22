@@ -16,16 +16,16 @@ empty_input:
   filepath: data/01_raw/0.txt
   layer: raw
 
-data_processing.tickers_closing_csv:
+tickers_ts_csv:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/tickers_closing.csv
+  filepath: data/01_raw/tickers_ts.csv
   layer: raw
 
 
 
 ##### ----- 02 INTERMEDIATE ----- #####
 
-tickers_closing:
+tickers_ts:
   type: pandas.ParquetDataSet
-  filepath: data/02_intermediate/tickers_closing.pq
+  filepath: data/02_intermediate/tickers_ts.pq
   layer: raw

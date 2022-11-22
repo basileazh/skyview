@@ -56,7 +56,7 @@ extensions = [
     "sphinx_copybutton",
 ]
 
-# enable autosummary plugin (table of contents for modules/classes/class
+# enable autosummary plugin (table of contents for modules/modules/class
 # methods)
 autosummary_generate = True
 

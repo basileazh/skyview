@@ -6,7 +6,7 @@ from typing import Any
 
 import pandas as pd
 
-from ...classes.data_collection.data_collection import yf_retrieve
+from ...modules.data_collection.data_collection import yf_retrieve
 
 
 def yf_retrieve_node(e: Any, parameters: Any) -> tuple[pd.DataFrame, pd.DataFrame]:
