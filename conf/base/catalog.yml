@@ -27,5 +27,5 @@ tickers_ts_csv:
 
 tickers_ts:
   type: pandas.ParquetDataSet
-  filepath: data/02_intermediate/tickers_ts.pq
+  filepath: data/02_intermediate/tickers_ts.parquet
   layer: raw

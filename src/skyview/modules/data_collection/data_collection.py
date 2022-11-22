@@ -12,7 +12,7 @@ import pandas as pd
 import yfinance as yf
 
 # Config
-from ..utils.utils import load_config
+from ..utils.utils import load_config, snake_case
 
 config = load_config()
 
@@ -36,6 +36,19 @@ def yf_retrieve(
 
     # Pull close data from Yahoo Finance for the list of tickers
     data = yf.download(ticker_list, start=start_date, end=end_date)
-    data = pd.DataFrame(data)
+    data = pd.DataFrame(data).reset_index()
 
     return data
+
+
+def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    - Flatten columns levels by joining with "_"
+    - Converts all columns to snake case
+    :param df: df with columns names to be cleaned
+    :return: DataFrame with cleaned columns
+    """
+    df.columns = [snake_case("_".join(col)) for col in df.columns.values]
+    df.rename({"date_": "date"}, axis=1, inplace=True)
+
+    return df

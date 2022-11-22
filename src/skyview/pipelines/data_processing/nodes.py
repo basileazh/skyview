@@ -6,7 +6,7 @@ from typing import Any
 
 import pandas as pd
 
-from ...modules.data_collection.data_collection import yf_retrieve
+from ...modules.data_collection.data_collection import clean_columns, yf_retrieve
 
 
 def yf_retrieve_node(e: Any, parameters: Any) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -31,3 +31,15 @@ def yf_retrieve_node(e: Any, parameters: Any) -> tuple[pd.DataFrame, pd.DataFram
     )
 
     return tickers_ts, tickers_ts
+
+
+def clean_df_node(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    - Flatten columns levels by joining with "_"
+    - Converts all columns to snake case
+    :param df: df with columns names to be cleaned
+    :return: DataFrame with cleaned columns
+    """
+    df = clean_columns(df)
+
+    return df

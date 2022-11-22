@@ -1,9 +1,10 @@
 import os
 from datetime import datetime, timedelta
+from re import sub
 
 import pandas as pd
 
-# #### CONFIG #### #
+# ############# CONFIG ############# #
 import yaml
 from yaml.loader import SafeLoader
 
@@ -18,12 +19,32 @@ def load_config() -> dict:
     # Open the file and load the file
     with open(f"{DIR}/../config.yml") as f:
         config = yaml.load(f, Loader=SafeLoader)
-    # ################ #
 
     return config
 
 
 config = load_config()
+
+
+# ############# STR ############# #
+
+
+def snake_case(s: str) -> str:
+    """
+    Transforms an inputed str to snake_case
+    :param s: input str
+    :return: snaked_case version of input str
+    """
+    return (
+        "_".join(
+            sub(
+                "([A-Z][a-z]+)", r" \1", sub("([A-Z]+)", r" \1", s.replace("-", " "))
+            ).split()
+        )
+        .lower()
+        .replace("&", "")
+        .replace(".", "_")
+    )
 
 
 # USELESS
