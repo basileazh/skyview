@@ -21,6 +21,7 @@ yfinance~=0.1.87
 pandas~=1.5.1
 pandas-stubs
 seaborn
+great_expectations
 
 # Modelling
 prophet
