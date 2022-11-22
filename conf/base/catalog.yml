@@ -2,3 +2,30 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+#########################################
+#########################################
+        ### DATA PROCESSING ###
+#########################################
+#########################################
+
+
+##### ----- RAW ----- #####
+empty_input:
+  type: text.TextDataSet
+  filepath: data/01_raw/0.txt
+  layer: raw
+
+data_processing.tickers_closing_csv:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/companies.csv
+  layer: raw
+
+
+
+##### ----- 02 INTERMEDIATE ----- #####
+
+data_processing.tickers_closing:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/tickers_closing.pq
+  layer: raw
