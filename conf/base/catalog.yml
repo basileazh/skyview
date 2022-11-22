@@ -18,14 +18,14 @@ empty_input:
 
 data_processing.tickers_closing_csv:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/companies.csv
+  filepath: data/01_raw/tickers_closing.csv
   layer: raw
 
 
 
 ##### ----- 02 INTERMEDIATE ----- #####
 
-data_processing.tickers_closing:
+tickers_closing:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/tickers_closing.pq
   layer: raw
