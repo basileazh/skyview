@@ -12,7 +12,7 @@ from skyview.modules.data_visualization.data_visualization import (
 )
 
 
-def yf_retrieve_node(e: Any, parameters: Any) -> tuple[pd.DataFrame, pd.DataFrame]:
+def yf_retrieve_node(e: Any, parameters: Any):
     """
     Retrieve tickers daily historic prices from yahoo yfinance API
         :param e: /

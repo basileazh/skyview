@@ -85,9 +85,7 @@ def unique(list1):
 # ############# TICKERS ############# #
 
 
-def filter_df_columns_tickers(
-    df: pd.DataFrame, tickers_list_filter: list[str] = ["GOOG"]
-):
+def filter_df_columns_tickers(df: pd.DataFrame, tickers_list_filter=["GOOG"]):
     """
     Filters a pd.DataFrame of tickers time series in columns
     to only keep tickers in tickers_list_filter.
