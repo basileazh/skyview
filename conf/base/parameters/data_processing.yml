@@ -16,6 +16,17 @@ yf_retrieve:
     - CAC40
     - BTC-USD
     - GOLD
-    - SILVER
+#    - SILVER
     - DJIA
     - S&P 500
+
+visualize_time_series:
+  # Path from the visualize_time_series_by_type_node to get tickers data csv
+  # used to get multiple output with split based on type criteria :
+  # index, stock, commodity, crypto
+  path_to_tickers_data: "tickers_data.csv"
+  # Parameters for plot in sns
+  plot:
+    figure.figsize: 30, 20
+    # SQL query to filter on input data, for example select columns
+    query:

@@ -7,6 +7,9 @@ from typing import Any
 import pandas as pd
 
 from skyview.modules.data_collection.data_collection import clean_columns, yf_retrieve
+from skyview.modules.data_visualization.data_visualization import (
+    visualize_time_series_lines_by_type,
+)
 
 
 def yf_retrieve_node(e: Any, parameters: Any) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -43,3 +46,23 @@ def clean_df_node(df: pd.DataFrame) -> pd.DataFrame:
     df = clean_columns(df)
 
     return df
+
+
+def visualize_time_series_lines_by_type_node(data: pd.DataFrame, parameters: Any):
+    """
+    Creates a line plot with all columns in data
+    One line plot is created by type of ticker, as described in
+    src/skyview/modules/data_visualization/tickers_data.csv
+    :param data: data to plot
+    :param parameters: In conf/base/catalog:
+    Defaults to {"figsize": (30, 20)}
+    :return: plt
+    """
+    plots = visualize_time_series_lines_by_type(data, parameters)
+    print(plots)
+    return (
+        plots["index"],
+        plots["stock"],
+        plots["commodity"],
+        plots["crypto"],
+    )

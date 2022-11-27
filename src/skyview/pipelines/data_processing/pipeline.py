@@ -6,7 +6,11 @@ from typing import Any
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import clean_df_node, yf_retrieve_node
+from .nodes import (
+    clean_df_node,
+    visualize_time_series_lines_by_type_node,
+    yf_retrieve_node,
+)
 
 
 def create_pipeline(**kwargs: Any) -> Pipeline:
@@ -28,10 +32,27 @@ def create_pipeline(**kwargs: Any) -> Pipeline:
                 outputs="inter_tickers_ts",
                 name="clean_df_node",
             ),
+            # ####### 08 REPORTING ######## #
+            # Tickers daily prices
+            node(
+                func=visualize_time_series_lines_by_type_node,
+                inputs=["inter_tickers_ts", "params:visualize_time_series"],
+                outputs=[
+                    "reporting_tickers_ts_lines_index",
+                    "reporting_tickers_ts_lines_stock",
+                    "reporting_tickers_ts_lines_commodity",
+                    "reporting_tickers_ts_lines_crypto",
+                ],
+                name="visualize_time_series_lines_by_type_node",
+            ),
         ],
-        parameters="params:yf_retrieve",
+        parameters={"params:yf_retrieve", "params:visualize_time_series"},
         inputs="empty_input",
         namespace="data_processing",
-        # outputs={"tickers_ts", "tickers_ts_csv"},
-        outputs="inter_tickers_ts",
+        outputs={
+            "reporting_tickers_ts_lines_index",
+            "reporting_tickers_ts_lines_stock",
+            "reporting_tickers_ts_lines_commodity",
+            "reporting_tickers_ts_lines_crypto",
+        },
     )

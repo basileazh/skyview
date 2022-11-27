@@ -21,16 +21,49 @@ empty_input:
 data_processing.raw_tickers_ts_csv:
   type: pandas.CSVDataSet
   filepath: data/01_raw/tickers_ts.csv
+#  versioned: true
   layer: raw
 
 data_processing.raw_tickers_ts:
   type: pandas.ParquetDataSet
   filepath: data/01_raw/raw_tickers_ts.parquet
+#  versioned: true
   layer: raw
+
 
 ##### ----- 02 INTERMEDIATE ----- #####
 
-inter_tickers_ts:
+
+data_processing.inter_tickers_ts:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/tickers_ts.parquet
+#  versioned: true
   layer: inter
+
+
+##### ----- 08 REPORTING ----- #####
+
+
+reporting_tickers_ts_lines_index:
+  type: matplotlib.MatplotlibWriter
+  filepath: data/08_reporting/reporting_tickers_ts_lines_index.png
+#  versioned: true
+  layer: reporting
+
+reporting_tickers_ts_lines_stock:
+  type: matplotlib.MatplotlibWriter
+  filepath: data/08_reporting/reporting_tickers_ts_lines_stock.png
+#  versioned: true
+  layer: reporting
+
+reporting_tickers_ts_lines_commodity:
+  type: matplotlib.MatplotlibWriter
+  filepath: data/08_reporting/reporting_tickers_ts_lines_commodity.png
+#  versioned: true
+  layer: reporting
+
+reporting_tickers_ts_lines_crypto:
+  type: matplotlib.MatplotlibWriter
+  filepath: data/08_reporting/reporting_tickers_ts_lines_crypto.png
+#  versioned: true
+  layer: reporting
