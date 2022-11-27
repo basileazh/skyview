@@ -12,7 +12,7 @@ import pandas as pd
 import yfinance as yf
 
 # Config
-from ..utils.utils import load_config, snake_case
+from skyview.modules.utils.utils import load_config, snake_case
 
 config = load_config()
 
