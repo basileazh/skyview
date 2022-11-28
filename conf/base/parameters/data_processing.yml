@@ -25,8 +25,5 @@ visualize_time_series:
   # used to get multiple output with split based on type criteria :
   # index, stock, commodity, crypto
   path_to_tickers_data: "tickers_data.csv"
-  # Parameters for plot in sns
-  plot:
-    figure.figsize: 30, 20
-    # SQL query to filter on input data, for example select columns
-    query:
+  # Time frequency for charts
+  time_freq: W-MON

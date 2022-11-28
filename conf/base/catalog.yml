@@ -44,26 +44,68 @@ data_processing.inter_tickers_ts:
 ##### ----- 08 REPORTING ----- #####
 
 
+#reporting_tickers_ts_lines_index:
+#  type: matplotlib.MatplotlibWriter
+#  filepath: data/08_reporting/reporting_tickers_ts_lines_index.png
+##  versioned: true
+#  layer: reporting
+
 reporting_tickers_ts_lines_index:
-  type: matplotlib.MatplotlibWriter
+  type: plotly.PlotlyDataSet
   filepath: data/08_reporting/reporting_tickers_ts_lines_index.png
-#  versioned: true
-  layer: reporting
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Index Historic Value
 
 reporting_tickers_ts_lines_stock:
-  type: matplotlib.MatplotlibWriter
+  type: plotly.PlotlyDataSet
   filepath: data/08_reporting/reporting_tickers_ts_lines_stock.png
-#  versioned: true
-  layer: reporting
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Index Historic Value
 
 reporting_tickers_ts_lines_commodity:
-  type: matplotlib.MatplotlibWriter
+  type: plotly.PlotlyDataSet
   filepath: data/08_reporting/reporting_tickers_ts_lines_commodity.png
-#  versioned: true
-  layer: reporting
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Index Historic Value
 
 reporting_tickers_ts_lines_crypto:
-  type: matplotlib.MatplotlibWriter
+  type: plotly.PlotlyDataSet
   filepath: data/08_reporting/reporting_tickers_ts_lines_crypto.png
-#  versioned: true
-  layer: reporting
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Index Historic Value
