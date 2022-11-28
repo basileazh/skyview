@@ -21,9 +21,19 @@ yf_retrieve:
     - S&P 500
 
 visualize_time_series:
+  # Time frequency for charts
+  time_freq: W-MON
+  # Timespan to plot
+  start_date_plot: 2018-01-01
+  end_date_plot: today
+  # price timing to plot in
+  # close, high, low, open
+  price_timing:
+    - close
+    - volume  # always keep
   # Path from the visualize_time_series_by_type_node to get tickers data csv
   # used to get multiple output with split based on type criteria :
   # index, stock, commodity, crypto
   path_to_tickers_data: "tickers_data.csv"
-  # Time frequency for charts
-  time_freq: W-MON
+  # Volume tickers values start with ... in data
+  volume_columns_str: volume
