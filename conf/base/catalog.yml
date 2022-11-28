@@ -50,9 +50,9 @@ data_processing.inter_tickers_ts:
 ##  versioned: true
 #  layer: reporting
 
-reporting_tickers_ts_lines_index:
+reporting_tickers_ts_lines_index_price:
   type: plotly.PlotlyDataSet
-  filepath: data/08_reporting/reporting_tickers_ts_lines_index.png
+  filepath: data/08_reporting/reporting_tickers_ts_lines_index_price.png
   plotly_args:
     type: line
     fig:
@@ -64,10 +64,11 @@ reporting_tickers_ts_lines_index:
       xaxis_title: Date
       yaxis_title: Value
       title: Index Historic Value
+  layer: reporting
 
-reporting_tickers_ts_lines_stock:
+reporting_tickers_ts_lines_index_volume:
   type: plotly.PlotlyDataSet
-  filepath: data/08_reporting/reporting_tickers_ts_lines_stock.png
+  filepath: data/08_reporting/reporting_tickers_ts_lines_index_volume.png
   plotly_args:
     type: line
     fig:
@@ -79,10 +80,11 @@ reporting_tickers_ts_lines_stock:
       xaxis_title: Date
       yaxis_title: Value
       title: Index Historic Value
+  layer: reporting
 
-reporting_tickers_ts_lines_commodity:
+reporting_tickers_ts_lines_stock_price:
   type: plotly.PlotlyDataSet
-  filepath: data/08_reporting/reporting_tickers_ts_lines_commodity.png
+  filepath: data/08_reporting/reporting_tickers_ts_lines_stock_price.png
   plotly_args:
     type: line
     fig:
@@ -94,10 +96,11 @@ reporting_tickers_ts_lines_commodity:
       xaxis_title: Date
       yaxis_title: Value
       title: Index Historic Value
+  layer: reporting
 
-reporting_tickers_ts_lines_crypto:
+reporting_tickers_ts_lines_stock_volume:
   type: plotly.PlotlyDataSet
-  filepath: data/08_reporting/reporting_tickers_ts_lines_crypto.png
+  filepath: data/08_reporting/reporting_tickers_ts_lines_stock_volume.png
   plotly_args:
     type: line
     fig:
@@ -109,3 +112,68 @@ reporting_tickers_ts_lines_crypto:
       xaxis_title: Date
       yaxis_title: Value
       title: Index Historic Value
+  layer: reporting
+
+reporting_tickers_ts_lines_commodity_price:
+  type: plotly.PlotlyDataSet
+  filepath: data/08_reporting/reporting_tickers_ts_lines_commodity_price.png
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Index Historic Value
+  layer: reporting
+
+reporting_tickers_ts_lines_commodity_volume:
+  type: plotly.PlotlyDataSet
+  filepath: data/08_reporting/reporting_tickers_ts_lines_commodity_volume.png
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Index Historic Value
+  layer: reporting
+
+reporting_tickers_ts_lines_crypto_price:
+  type: plotly.PlotlyDataSet
+  filepath: data/08_reporting/reporting_tickers_ts_lines_crypto_price.png
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Index Historic Value
+  layer: reporting
+
+reporting_tickers_ts_lines_crypto_volume:
+  type: plotly.PlotlyDataSet
+  filepath: data/08_reporting/reporting_tickers_ts_lines_crypto_volume.png
+  plotly_args:
+    type: line
+    fig:
+      x: Date
+      y: value
+      color: ticker
+      orientation: h
+    layout:
+      xaxis_title: Date
+      yaxis_title: Value
+      title: Historic Value
+  layer: reporting

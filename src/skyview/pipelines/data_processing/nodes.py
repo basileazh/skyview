@@ -8,7 +8,7 @@ import pandas as pd
 
 from skyview.modules.data_collection.data_collection import clean_columns, yf_retrieve
 from skyview.modules.data_visualization.data_visualization import (
-    visualize_time_series_lines_by_type,
+    visualize_time_series_by_type,
 )
 
 
@@ -48,7 +48,7 @@ def clean_df_node(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def visualize_time_series_lines_by_type_node(data: pd.DataFrame, parameters: Any):
+def visualize_time_series_by_type_node(data: pd.DataFrame, parameters: Any):
     """
     Creates a line plot with all columns in data
     One line plot is created by type of ticker, as described in
@@ -58,11 +58,14 @@ def visualize_time_series_lines_by_type_node(data: pd.DataFrame, parameters: Any
     Defaults to {"figsize": (30, 20)}
     :return: plt
     """
-    plots = visualize_time_series_lines_by_type(data, parameters)
-    print(plots)
+    plots = visualize_time_series_by_type(data, parameters)
     return (
-        plots["index"],
-        plots["stock"],
-        plots["commodity"],
-        plots["crypto"],
+        plots["index_price"],
+        plots["index_volume"],
+        plots["stock_price"],
+        plots["stock_volume"],
+        plots["commodity_price"],
+        plots["commodity_volume"],
+        plots["crypto_price"],
+        plots["crypto_volume"],
     )

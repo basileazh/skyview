@@ -2,6 +2,9 @@
 GOOG;stock
 AMZN;stock
 AAPL;stock
+TSLA;stock
+DDOG;stock
+KN;stock
 NASDAQ;index
 CAC40;index
 BTC-USD;crypto

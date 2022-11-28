@@ -6,11 +6,7 @@ from typing import Any
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import (
-    clean_df_node,
-    visualize_time_series_lines_by_type_node,
-    yf_retrieve_node,
-)
+from .nodes import clean_df_node, visualize_time_series_by_type_node, yf_retrieve_node
 
 
 def create_pipeline(**kwargs: Any) -> Pipeline:
@@ -35,13 +31,17 @@ def create_pipeline(**kwargs: Any) -> Pipeline:
             # ####### 08 REPORTING ######## #
             # Tickers daily prices
             node(
-                func=visualize_time_series_lines_by_type_node,
+                func=visualize_time_series_by_type_node,
                 inputs=["inter_tickers_ts", "params:visualize_time_series"],
                 outputs=[
-                    "reporting_tickers_ts_lines_index",
-                    "reporting_tickers_ts_lines_stock",
-                    "reporting_tickers_ts_lines_commodity",
-                    "reporting_tickers_ts_lines_crypto",
+                    "reporting_tickers_ts_lines_index_price",
+                    "reporting_tickers_ts_lines_index_volume",
+                    "reporting_tickers_ts_lines_stock_price",
+                    "reporting_tickers_ts_lines_stock_volume",
+                    "reporting_tickers_ts_lines_commodity_price",
+                    "reporting_tickers_ts_lines_commodity_volume",
+                    "reporting_tickers_ts_lines_crypto_price",
+                    "reporting_tickers_ts_lines_crypto_volume",
                 ],
                 name="visualize_time_series_lines_by_type_node",
             ),
@@ -50,9 +50,13 @@ def create_pipeline(**kwargs: Any) -> Pipeline:
         inputs="empty_input",
         namespace="data_processing",
         outputs={
-            "reporting_tickers_ts_lines_index",
-            "reporting_tickers_ts_lines_stock",
-            "reporting_tickers_ts_lines_commodity",
-            "reporting_tickers_ts_lines_crypto",
+            "reporting_tickers_ts_lines_index_price",
+            "reporting_tickers_ts_lines_index_volume",
+            "reporting_tickers_ts_lines_stock_price",
+            "reporting_tickers_ts_lines_stock_volume",
+            "reporting_tickers_ts_lines_commodity_price",
+            "reporting_tickers_ts_lines_commodity_volume",
+            "reporting_tickers_ts_lines_crypto_price",
+            "reporting_tickers_ts_lines_crypto_volume",
         },
     )
