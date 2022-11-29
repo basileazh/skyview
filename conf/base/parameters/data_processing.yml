@@ -3,3 +3,44 @@
 #
 # Documentation for this file format can be found in "Parameters"
 # Link: https://kedro.readthedocs.io/en/0.18.3/kedro_project_setup/configuration.html#parameters
+
+yf_retrieve:
+  activate: True
+  start_date: 2015-01-01
+  end_date: 2022-10-31
+  tickers_list:
+    # stocks
+    - GOOG
+    - AMZN
+    - AAPL
+    - TSLA
+    - DDOG
+    - KN
+    # index
+    - NASDAQ
+    - CAC40
+    - DJIA
+    - S&P 500
+    # commodity
+    - GOLD
+#    - SILVER  # empty
+    # crypto
+    - BTC-USD
+
+visualize_time_series:
+  # Time frequency for charts
+  time_freq: W-MON
+  # Timespan to plot
+  start_date_plot: 2018-01-01
+  end_date_plot: today
+  # price timing to plot in
+  # close, high, low, open
+  price_timing:
+    - close
+    - volume  # always keep
+  # Path from the visualize_time_series_by_type_node to get tickers data csv
+  # used to get multiple output with split based on type criteria :
+  # index, stock, commodity, crypto
+  path_to_tickers_data: "tickers_data.csv"
+  # Volume tickers values start with ... in data
+  volume_columns_str: volume

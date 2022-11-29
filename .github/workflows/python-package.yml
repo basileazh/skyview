@@ -38,3 +38,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Build docs
+      run: |
+        kedro build-docs
+    - name: Create wheel
+      run: |
+        kedro package
