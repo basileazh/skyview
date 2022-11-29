@@ -1,0 +1,7 @@
+# Format for all dates
+F: "%Y-%m-%d"
+
+# USELESS
+# Number of lines at the top of the file received from yfinance API.
+# Used to make a join with a date range in the data_collection.py retrieve() function
+#nb_lines_header_yf: 2

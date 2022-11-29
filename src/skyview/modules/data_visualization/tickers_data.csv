@@ -1,0 +1,13 @@
+﻿ticker;type
+GOOG;stock
+AMZN;stock
+AAPL;stock
+TSLA;stock
+DDOG;stock
+KN;stock
+NASDAQ;index
+CAC40;index
+BTC-USD;crypto
+GOLD;commodity
+DJIA;index
+S&P 500;index
