@@ -77,7 +77,7 @@ def _melt_df_for_plotly(df: pd.DataFrame) -> pd.DataFrame:
 
 def _resample_plotly_df(df: pd.DataFrame, freq: str = "w-MON") -> pd.DataFrame:
     """
-    Resample a plotly-ready dataset, with 3 columns :
+    Resample based on pandas-style freq a plotly-ready dataset, with 3 columns :
     Date, ticker, value
     This df is outputed by _melt_df_for_plotly
     Args:
@@ -90,11 +90,12 @@ def _resample_plotly_df(df: pd.DataFrame, freq: str = "w-MON") -> pd.DataFrame:
     # Resampling data on inputed time frequency
     df = (
         df.set_index("Date")
-        .groupby("ticker")
+        .groupby(["ticker"])
         .resample(freq)
         .agg({"value": "sum"})
         .reset_index()
     )
+    df = df[["Date", "ticker", "value"]]
 
     return df
 
@@ -128,7 +129,7 @@ def _filter_date_plotly_df(
 
 
 def _filter_price_timing_plotly_df(
-    df: pd.DataFrame, price_timings: list = ["close"]
+    df: pd.DataFrame, price_timings: list = ["close", "volume"]
 ) -> pd.DataFrame:
     """
     Filters tickers based on price timing criteria

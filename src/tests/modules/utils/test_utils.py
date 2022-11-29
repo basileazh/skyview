@@ -11,5 +11,6 @@ def test_snake_case():
     Test for skyview.modules.utils.utils.snake_case function
     Transforms an inputed str to snake_case
     """
-    STRING = "Basile. El-_ &AzHArI/"
-    assert snake_case(STRING) == "basile__el____az_h_ar_i/"
+    input_str = "Basile. El-_ &AzHArI/"
+    output_str = "basile__el____az_h_ar_i/"
+    assert snake_case(input_str) == output_str
