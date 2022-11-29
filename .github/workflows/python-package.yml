@@ -47,6 +47,3 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-
-
-dist/skyview-0-1-py3-none-any.whl
