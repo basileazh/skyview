@@ -5,9 +5,9 @@ name: Python package
 
 on:
   push:
-    branches: [ "master", "staging" ]
+    branches: [ "master", "staging", "development" ]
   pull_request:
-    branches: [ "master", "staging" ]
+    branches: [ "master", "staging", "development" ]
 
 jobs:
   build:
@@ -38,12 +38,6 @@ jobs:
     - name: Build docs
       run: |
         kedro build-docs
-    - name: Create wheel
-      run: |
-        kedro package
-    - name: Install library
-      run: |
-        pip install dist/skyview-0.1-py3-none-any.whl
     - name: Test with pytest
       run: |
         cd src/
