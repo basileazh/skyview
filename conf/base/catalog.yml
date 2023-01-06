@@ -26,19 +26,33 @@ data_processing.raw_tickers_ts_csv:
 
 data_processing.raw_tickers_ts:
   type: pandas.ParquetDataSet
-  filepath: data/01_raw/raw_tickers_ts.parquet
+  filepath: data/02_intermediate/raw_tickers_ts.parquet
 #  versioned: true
   layer: raw
 
 
-##### ----- 02 INTERMEDIATE ----- #####
+##### ----- 04 FEATURES ----- #####
 
-
-data_processing.inter_tickers_ts:
+data_processing.tickers_ts_reporting:
   type: pandas.ParquetDataSet
-  filepath: data/02_intermediate/tickers_ts.parquet
+  filepath: data/04_feature/tickers_ts.parquet
 #  versioned: true
   layer: inter
+
+
+tickers_ts:
+  type: pandas.ParquetDataSet
+  filepath: data/04_feature/tickers_ts.parquet
+#  versioned: true
+  layer: feature
+
+##### ----- 05 MODEL INPUTS ----- #####
+
+input_prophet:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_inputs/input_prophet.parquet
+#  versioned: true
+  layer: model_inputs
 
 
 ##### ----- 08 REPORTING ----- #####

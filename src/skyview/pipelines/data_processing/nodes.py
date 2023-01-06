@@ -45,7 +45,7 @@ def clean_df_node(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = clean_columns(df)
 
-    return df
+    return df, df
 
 
 def visualize_time_series_by_type_node(data: pd.DataFrame, parameters: Any):
