@@ -48,7 +48,7 @@ tickers_ts:
 
 ##### ----- 05 MODEL INPUTS ----- #####
 
-input_prophet:
+data_science.input_prophet:
   type: pandas.ParquetDataSet
   filepath: data/05_model_inputs/input_prophet.parquet
 #  versioned: true
