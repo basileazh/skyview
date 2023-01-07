@@ -50,7 +50,7 @@ tickers_ts:
 
 data_science.input_prophet:
   type: pandas.ParquetDataSet
-  filepath: data/05_model_inputs/input_prophet.parquet
+  filepath: data/05_model_input/input_prophet.parquet
 #  versioned: true
   layer: model_inputs
 
@@ -191,3 +191,9 @@ reporting_tickers_ts_lines_crypto_volume:
       yaxis_title: Value
       title: Historic Value
   layer: reporting
+
+# Correlation between y and other variables in model_input
+correlation_input_model:
+    type: pandas.ParquetDataSet
+    filepath: data/08_reporting/correlation_input_model.parquet
+    layer: reporting

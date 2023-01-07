@@ -6,7 +6,8 @@ generated using Kedro 0.18.3
 import pandas as pd
 
 from skyview.modules.data_science.ml_processing import (
-    format_ds_y_prophet
+    format_ds_y_prophet,
+    compute_correlation,
 )
 
 
@@ -20,3 +21,13 @@ def format_ds_y_prophet_node(data: pd.DataFrame, parameters: dict) -> pd.DataFra
     """
 
     return format_ds_y_prophet(data, parameters["y_name"], parameters["date_name"])  # return formatted data
+
+
+def compute_correlation_node(data: pd.DataFrame) -> pd.Series:
+    """
+    Compute correlation between y and features
+    :param data: pd.DataFrame
+    :return: pd.Series
+    """
+
+    return compute_correlation(data)  # return correlation between features

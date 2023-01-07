@@ -5,5 +5,5 @@
 # Link: https://kedro.readthedocs.io/en/0.18.3/kedro_project_setup/configuration.html#parameters
 
 ml_processing:
-  y_name: "GOOG"
+  y_name: "close__aapl"
   date_name: "Date"
